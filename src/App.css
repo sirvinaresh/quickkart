@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-link {
+  font-size: 17px !important;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+}
+.categories a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.categories a:hover {
+  color: blue;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: 2px solid black;
+  transition: 0.2s;
+}
+
+.search-btn:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.brand {
+  text-decoration: none;
+  color: gray !important;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid white;
+}
+
+.canva.active {
+  color: orange !important;
+  font-weight: bold;
+  border: none;
+}
+
+.sidebar{
+  position: sticky;
+}
+
+@media only screen and (max-width: 600px) {
+ .sidebar{
+  position: static;
+ }
+}

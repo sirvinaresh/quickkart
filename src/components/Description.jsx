@@ -42,7 +42,7 @@ function Description() {
                     }
                 </div>
                 <div className="text-center my-5">
-                  <Button variant="outline-success" className="rounded-0 p-3" ><FaCartArrowDown /> ADD TO CART</Button>
+                  <Button variant="outline-success" className="rounded-0 p-3" ><FaCartArrowDown /> ADD TO CART</Button> 
                   <Button variant="outline-warning" className="rounded-0 p-3 ms-4"><GiElectric /> BUY NOW</Button>
                 </div>
               </Col>
@@ -61,7 +61,7 @@ function Description() {
 
                 <p>{pro.category} - {pro.brand}</p>
 
-                <h6 className="w-50">{pro.description}</h6>
+                <h6 >{pro.description}</h6>
 
                 <p><button className="border-0 px-2 bg-success text-light rounded-1">{pro.rating}<IoStarSharp className="mb-1" /></button> Ratings </p>
 
@@ -77,7 +77,7 @@ function Description() {
 
                 <h4 >Product Description</h4>
 
-                <Table style={{width:'30%'}}>
+                <Table className="description">
                     <tbody>
                         <tr>
                             <td>Brand</td>

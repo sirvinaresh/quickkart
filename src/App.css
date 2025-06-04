@@ -49,6 +49,10 @@
   border: none;
 }
 
+.description{
+  width: 50% !important;
+}
+
 .sidebar{
   position: sticky;
 }
@@ -56,5 +60,9 @@
 @media only screen and (max-width: 600px) {
  .sidebar{
   position: static;
+ }
+
+ .description{
+  width: 100% !important;
  }
 }

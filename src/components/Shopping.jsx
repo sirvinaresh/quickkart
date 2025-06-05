@@ -119,7 +119,7 @@ function Shopping() {
                                             {/* <Button variant="outline-success" className='px-4 rounded-0 '>ADD</Button> */}
                                         </Card.Body>
                                             <div>
-                                                <input type="checkbox" className="btn-check" id={items.id} autocomplete="off" onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
+                                                <input type="checkbox" className="btn-check" id={items.id}  onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
                                                 <label className="w-25 mb-3 ms-3 px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
                                             </div>
                                     </Card>

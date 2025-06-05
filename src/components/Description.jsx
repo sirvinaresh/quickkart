@@ -23,7 +23,7 @@ function Description() {
       .then((product) => {setpro(product)});
   }, [params.id]);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -42,7 +42,7 @@ function Description() {
                     }
                 </div>
                 <div className="text-center my-5">
-                  <Button variant="outline-success" className="rounded-0 p-3" ><FaCartArrowDown /> ADD TO CART</Button> 
+                  <Button variant="outline-success" className="rounded-0 p-3" onClick={()=>{dispatch(add(pro))}}><FaCartArrowDown /> ADD TO CART</Button> 
                   <Button variant="outline-warning" className="rounded-0 p-3 ms-4"><GiElectric /> BUY NOW</Button>
                 </div>
               </Col>

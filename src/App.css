@@ -57,12 +57,20 @@
   position: sticky;
 }
 
+.fq{
+  width: 50% !important;
+}
+
 @media only screen and (max-width: 600px) {
  .sidebar{
   position: static;
  }
 
  .description{
+  width: 100% !important;
+ }
+
+ .fq{
   width: 100% !important;
  }
 }

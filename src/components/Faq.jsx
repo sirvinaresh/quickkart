@@ -50,7 +50,7 @@ function Faq() {
   ];
   return (
     <>
-      <Container className="w-50 my-5">
+      <Container className="fq my-5">
         <h1 className="text-center mb-3">FAQs</h1>
         <Accordion defaultActiveKey="0" flush>
           {accor.map((val, i) => {

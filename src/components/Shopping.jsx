@@ -5,8 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { add, remove } from '../slice/addtocart';
+import Pagination from 'react-bootstrap/Pagination';
 
 function Shopping() {
     
@@ -15,21 +16,45 @@ function Shopping() {
     const [pro,setpro] = useState([]);
     const [active,setactive] = useState();
 
+    const limit = 8;
+    const [total,settotal] = useState(0)
+    const [page,setpage] = useState(1);
+    const [visible,setvisible] = useState(4);
+    const skip = (page-1) * limit;
+
+    const saved = useSelector((state)=>state.cart.items)
+
     useEffect(()=>{
         fetch('https://dummyjson.com/products/categories')
         .then((res)=>res.json())
         .then((data)=>setdata(data))
 
 
-        fetch('https://dummyjson.com/products')
-        .then((response)=>response.json())
+        // fetch('https://dummyjson.com/products')
+        // .then((response)=>response.json())
+        // .then((product)=>{
+        //     setpro(product.products);            
+        // })
+
+       fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
+        .then((res)=>res.json())
         .then((product)=>{
-            setpro(product.products);            
+            setpro(product.products);
+            settotal(product.total)
+            // console.log(total);
         })
+    },[page])
 
-       
-    },[])
+        const totalpages = Math.ceil(total/limit);
 
+        // let pages = [];
+        // for (let number = 1; number <= totalpages; number++) {
+        // pages.push(
+        //     <Pagination.Item key={number} active={number === page} onClick={()=>{setpage(number)}}>
+        //         {number}
+        //     </Pagination.Item>,
+        // );
+        // }
 
         const itemsearch = () =>{
             fetch(`https://dummyjson.com/products/search?q=${search}`)
@@ -102,7 +127,8 @@ function Shopping() {
             </div>
                 <Row>
                     {
-                        pro.map((items,i)=>{
+                        pro.length > 1 ?  pro.map((items,i)=>{
+                            const issaved = saved.some((item)=>item.id === items.id)
                             return(
                                 <Col key={i} lg={3} md={6} sm={12} xs={12}>
                                     <Card className='my-4 border-0 shadow ' style={{minHeight:'470px'}}>
@@ -119,18 +145,42 @@ function Shopping() {
                                             {/* <Button variant="outline-success" className='px-4 rounded-0 '>ADD</Button> */}
                                         </Card.Body>
                                             <div>
-                                                <input type="checkbox" className="btn-check" id={items.id}  onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
+                                                <input type="checkbox" className="btn-check" id={items.id} checked={issaved} onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
                                                 <label className="w-25 mb-3 ms-3 px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
                                             </div>
                                     </Card>
                                 </Col>
                             )
-                        })
+                        }): <div className=' text-center'><img src={require('../images/productnot.jpg')}  className='img-fluid w-50'/> <h3>Product not found!!</h3></div>
                     }
+                    
+
+                    <Pagination className=''>
+                        <Pagination.Prev onClick={()=>{setpage(page-1)}} disabled={page===1}/>
+                           {
+                            Array.from({length:visible},(_,i)=>i+1).map((num)=>(
+                                <Pagination.Item key={num} active={num===page} onClick={()=>{setpage(num)}}>
+                                    {num}
+                                </Pagination.Item>
+                            ))
+                           }
+
+                           {
+                            visible < totalpages && (
+                                <Pagination.Ellipsis onClick={()=>{setvisible((pre)=>Math.min(pre+4,totalpages))}}/>
+                            )
+                           }
+                            {/* {pages} */}
+                        <Pagination.Next onClick={()=>{setpage(page+1)}} disabled={page===totalpages}/>
+                    </Pagination>
+
+                    
+
                 </Row>
             </Col>
         </Row>
     </Container>
+    
     </>
   )
 }

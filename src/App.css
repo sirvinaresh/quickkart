@@ -74,3 +74,13 @@
   width: 100% !important;
  }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+}

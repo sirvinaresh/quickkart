@@ -9,7 +9,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { GiElectric } from "react-icons/gi";
 import Button from 'react-bootstrap/Button';
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../slice/addtocart";
 
 function Description() {
@@ -24,7 +24,6 @@ function Description() {
   }, [params.id]);
 
   const dispatch = useDispatch()
-
   return (
     <>
       <Container className="my-5">

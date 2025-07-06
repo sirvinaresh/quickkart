@@ -6,7 +6,7 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { HiBars3CenterLeft } from "react-icons/hi2";
-import logo from './canvas-logo.png';
+import logo from '../images/canvas-logo.png';
 import { Link,  NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,7 @@ function Header() {
     <Navbar expand="lg" className="shadow" sticky="top" style={{backgroundColor:'#002F6C'}}>
       <Container className="py-2 text-light ">
         <HiBars3CenterLeft className="fs-3 me-5" onClick={handleShow}/>
-        <Navbar.Brand ><img src={require('./nav-logo.png')} alt="" className="w-25 img-fluid" /></Navbar.Brand>
+        <Navbar.Brand ><img src={require('../images/nav-logo.png')} alt="" className="w-25 img-fluid" /></Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="ms-auto gap-4">
             <NavLink className="text-light nav-link" to="/">Home</NavLink>

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from 'react-bootstrap/Card';
 import { remove } from "../slice/addtocart";
 import { Link } from 'react-router-dom';
-import empty from './no-cart.svg';
+import empty from '../images/no-cart.svg';
 
 function Cartdis() {
 
@@ -24,9 +24,10 @@ function Cartdis() {
     <>
       <Container className="my-5">
         <Row>
+            {/* product listing */}
             <Col lg={8} md={8} sm={12} xs={12} >
                     {
-                      item.length > 0 ? (item.map((val,i)=>{
+                      item && item.length > 0 ? (item.map((val,i)=>{
                         return(
                           <Card className="rounded-0 border">
                            <div className=" d-lg-flex">
@@ -45,6 +46,8 @@ function Cartdis() {
                       })) : <div className="text-center my-4"><img src={empty} alt="" className="img-fluid" /> <br /> <strong >No products in the cart.</strong></div>
                     }
             </Col>
+
+            {/* billing part */}
             <Col lg={4} md={4} sm={12} xs={12} className="shadow h-25 position-sticky" style={{top:'12%'}}>
                 <p class="fw-bold fs-3 mt-3">PRICE <span class="text-primary">DETAILS</span></p>
             <div class="shadow px-3 mb-1 bg-body rounded  ">

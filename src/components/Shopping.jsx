@@ -10,6 +10,8 @@ import { add, remove } from '../slice/addtocart';
 import Pagination from 'react-bootstrap/Pagination';
 
 function Shopping() {
+
+    
     
     const [data,setdata] = useState([]);
     const [search,setsearch] = useState('');
@@ -125,6 +127,7 @@ function Shopping() {
                     <option value="high">Sort by price: high to low</option>
                 </select>
             </div>
+            
                 <Row>
                     {
                         pro.length > 1 ?  pro.map((items,i)=>{

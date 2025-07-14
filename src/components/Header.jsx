@@ -32,15 +32,17 @@ function Header() {
             <NavLink className="text-light nav-link" to="fq">FAQs</NavLink>
             <NavLink className="text-light nav-link" to="tc">Terms & Conditions</NavLink>
             <NavLink className="text-light nav-link" to="contact">Contact</NavLink> 
-            <button type="button" class=" position-relative" style={{backgroundColor:'transparent' ,border:"none"}}>
-              <Link to='cart'> <RiShoppingBag3Line className="fs-4 text-light"  /> </Link>
-              <span  class="position-absolute start-10 translate-middle badge rounded-pill bg-danger " style={{top:'20%'}}>
-                {cart}
-              </span>
-            </button>
+            
           </Nav>
         </Navbar.Collapse>
-
+       <div className="ms-lg-5">
+         <button type="button" className=" position-relative" style={{backgroundColor:'transparent' ,border:"none"}}>
+              <Link to='cart'> <RiShoppingBag3Line className="fs-4 text-light"  /> </Link>
+              <span  className="position-absolute start-10 translate-middle badge rounded-pill bg-danger " style={{top:'20%'}}>
+                {cart}
+              </span>
+        </button>
+       </div>
 
         {/* navbar canvas */}
         <Offcanvas show={show} onHide={handleClose}>

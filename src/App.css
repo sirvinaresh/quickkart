@@ -64,6 +64,10 @@
   flex: 1;
 }
 
+.card-dis{
+  min-height: 470px;
+}
+
 @media only screen and (max-width: 600px) {
  .sidebar{
   display: none;
@@ -76,6 +80,11 @@
  .fq{
   width: 100% !important;
  }
+
+ .card-dis{
+  min-height: 410px;
+}
+
 }
 
 

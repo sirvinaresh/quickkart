@@ -74,7 +74,8 @@ function Shopping() {
   return (
     <>
     <Container fluid>
-        <Row>
+        <Row>  
+            {/* categories for mobile */}
             <div className='mt-3 d-lg-none d-md-none'>
                 <h4><HiBars3BottomLeft className='mb-2' onClick={handleShow}/> Categories</h4>
 
@@ -94,7 +95,8 @@ function Shopping() {
                     </Offcanvas.Body>
                 </Offcanvas>
             </div>
-            {/* categories */}
+
+            {/* categories for leptop or tab */}
             <Col lg={3} md={4} sm={12} xs={12} className='overflow-auto sidebar' style={{height:'770px',top:'12%'}}>
                <ul style={{listStyle:'none'}} >
                 {
@@ -133,8 +135,8 @@ function Shopping() {
                         pro.length > 1 ?  pro.map((items,i)=>{
                             const issaved = saved.some((item)=>item.id === items.id)
                             return(
-                                <Col key={i} lg={3} md={6} sm={12} xs={12}>
-                                    <Card className='my-4 border-0 shadow ' style={{minHeight:'470px'}}>
+                                <Col key={i} lg={3} md={6} sm={6} xs={6}>
+                                    <Card className='my-4 border-0 shadow card-dis' >
                                         <Link to={`details/${items.id}`} className=' brand'><Card.Img  src={items.thumbnail} /></Link>
 
                                         <Card.Body>
@@ -146,7 +148,7 @@ function Shopping() {
                                         </Card.Body>
                                             <div>
                                                 <input type="checkbox" className="btn-check" id={items.id} checked={issaved} onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
-                                                <label className="w-25 mb-3 ms-3 px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
+                                                <label className=" mb-3 ms-3 px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
                                             </div>
                                     </Card>
                                 </Col>

@@ -21,14 +21,14 @@ function Header() {
   return (
     <Navbar expand="lg" className="shadow" sticky="top" style={{backgroundColor:'#002F6C'}}>
       <Container className="py-2 text-light ">
-        <HiBars3CenterLeft className="fs-3 me-5" onClick={handleShow}/>
-        <Navbar.Brand ><img src={require('../images/nav-logo.png')} alt="" className="w-25 img-fluid" /></Navbar.Brand>
+        <div className="d-flex align-items-center gap-2">
+          <HiBars3CenterLeft className="fs-1 d-lg-none " onClick={handleShow}/>
+          <Navbar.Brand ><img src={require('../images/nav-logo.png')} alt="" className="w-25 img-fluid" /></Navbar.Brand>
+        </div>
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="ms-auto gap-4">
             <NavLink className="text-light nav-link" to="/">Home</NavLink>
             <NavLink className="text-light nav-link" to="shop">Shop </NavLink>
-            <NavLink className="text-light nav-link" to="search">Search Page</NavLink>
-            <NavLink className="text-light nav-link" to="blog">Blog</NavLink>
             <NavLink className="text-light nav-link" to="fq">FAQs</NavLink>
             <NavLink className="text-light nav-link" to="tc">Terms & Conditions</NavLink>
             <NavLink className="text-light nav-link" to="contact">Contact</NavLink> 
@@ -45,7 +45,7 @@ function Header() {
        </div>
 
         {/* navbar canvas */}
-        <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas show={show} onHide={handleClose} className="w-75">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title><img src={logo} alt="" className="w-50 mt-2"/></Offcanvas.Title>
         </Offcanvas.Header>

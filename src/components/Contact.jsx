@@ -9,8 +9,10 @@ import { TbWorld } from "react-icons/tb";
 function Contact() {
   return (
     <>
+            <div className=' bg-secondary-subtle mt-3 py-5'>
+                <h1 className='text-center py-5'>Contact</h1>
+            </div>
         <Container className=' my-5 '>
-            <h2 className='text-center mb-5'>Contact</h2>
             <Row>
                 <Col lg={7} md={6} sm={12} className='p-4 rounded-3'>
                    <form className="row g-3">
@@ -49,7 +51,7 @@ function Contact() {
                         <p><font className="text-dark fw-bold">Address <FaLocationDot /> :</font>  <br /> Surat, Gujarat, India</p>
                         <p><font className="text-dark fw-bold">Phone <IoMdCall /> :</font>  <br /> +12025550199</p>
                         <p><font className="text-dark fw-bold">Website <TbWorld /> :</font>  <br /> <a href="https://quickkart-jade.vercel.app/">https://quickkart-jade.vercel.app/</a></p>
-                        <p><font className="text-dark fw-bold">Follow US:</font>  <br /><span className='gap-2 d-flex'><FaFacebook /><FaInstagram /><FaTwitter /><FaLinkedin /></span></p>
+                        <p><font className="text-dark fw-bold">Follow US:</font>  <br /><span className='gap-2 d-flex fs-4 mt-2'><FaFacebook /><FaInstagram /><FaTwitter /><FaLinkedin /></span></p>
                     </div>
                 </Col>
             </Row>

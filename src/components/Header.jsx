@@ -53,8 +53,6 @@ function Header() {
           <Nav className="ms-3 gap-3">
             <NavLink className="text-black nav-link canva" onClick={handleClose} to="/">Home</NavLink>
             <NavLink className="text-black nav-link canva" onClick={handleClose} to="shop">Shop </NavLink>
-            <NavLink className="text-black nav-link canva" onClick={handleClose} to="search">Search Page</NavLink>
-            <NavLink className="text-black nav-link canva" onClick={handleClose} to="blog">Blog</NavLink>
             <NavLink className="text-black nav-link canva" onClick={handleClose} to="fq">FAQs</NavLink>
             <NavLink className="text-black nav-link canva" onClick={handleClose} to="tc">Terms & Conditions</NavLink>
             <NavLink className="text-black nav-link canva" onClick={handleClose} to="contact">Contact</NavLink>

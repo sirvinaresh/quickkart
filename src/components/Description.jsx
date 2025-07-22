@@ -9,9 +9,10 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { GiElectric } from "react-icons/gi";
 import Button from 'react-bootstrap/Button';
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add } from "../slice/addtocart";
 import { TbTruckDelivery } from "react-icons/tb";
+
 function Description() {
   const [pro, setpro] = useState([]);
 
@@ -46,7 +47,7 @@ function Description() {
                 </div>
               </Col>
 
-              <Col lg={7} md={9} sm={12} xs={12} className=" ps-5">
+              <Col lg={7} md={9} sm={12} xs={12} className="ps-lg-5">
                
                     {
                        pro.tags && pro.tags.map((it,i)=>{

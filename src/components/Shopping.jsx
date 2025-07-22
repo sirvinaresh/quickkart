@@ -135,21 +135,24 @@ function Shopping() {
                         pro.length > 1 ?  pro.map((items,i)=>{
                             const issaved = saved.some((item)=>item.id === items.id)
                             return(
-                                <Col key={i} lg={3} md={6} sm={6} xs={6}>
-                                    <Card className='my-4 border-0 shadow card-dis' >
-                                        <Link to={`details/${items.id}`} className=' brand'><Card.Img  src={items.thumbnail} /></Link>
+                                <Col key={i} lg={3} md={6} sm={6} xs={6} className="d-flex">
+                                    <Card className="my-4 border-0 shadow card-dis w-100">
+                                        <Link to={`details/${items.id}`} className="brand">
+                                        <Card.Img src={items.thumbnail} />
+                                        </Link>
 
-                                        <Card.Body>
-                                            <Card.Title className='mt-3 fs-6 brand'>{items.brand}</Card.Title>
-                                            <Card.Title className='mt-3'>{items.title}</Card.Title>
-                                            <Card.Text>₹ {items.price}</Card.Text>
-                            
+                                        <Card.Body className="card-body">
+                                        <div>
+                                            <Card.Title className="mt-3 fs-6 brand">{items.brand}</Card.Title>
+                                            <Card.Title className="mt-3">{items.title}</Card.Title>
+                                            <Card.Text className='mb-3'>₹ {items.price}</Card.Text>
+                                        </div>
 
+                                        <div className='mt-auto'>
+                                            <input type="checkbox" className="btn-check" id={items.id} checked={issaved} onChange={(e) => e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}/>
+                                            <label className="mb-3  px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
+                                        </div>
                                         </Card.Body>
-                                            <div>
-                                                <input type="checkbox" className="btn-check" id={items.id} checked={issaved} onChange={(e)=>{e.target.checked ? dispatch(add(items)) : dispatch(remove(items))}}></input>
-                                                <label className=" mb-3 ms-3 px-2 btn btn-outline-success rounded-0" htmlFor={items.id}>ADD</label>
-                                            </div>
                                     </Card>
                                 </Col>
                             )
